@@ -4,19 +4,16 @@ import androidx.room.*
 
 @Dao
 interface UserDao {
-
-
-    @Query("SELECT * FROM userinfo ORDER BY id DESC")
-    fun getAllUserInfo(): List<UserEntity>?
-
+    @Query("SELECT * FROM books")
+    fun getAllUserInfo(): List<BookEntity>?
 
     @Insert
-    fun insertUser(user: UserEntity?)
+    fun insertUser(book: BookEntity?)
 
     @Delete
-    fun deleteUser(user: UserEntity?)
+    fun deleteUser(book: BookEntity?)
 
     @Update
-    fun updateUser(user: UserEntity?)
+    fun updateUser(book: BookEntity?)
 
 }

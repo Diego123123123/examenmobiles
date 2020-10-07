@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
-import com.demo.roomdemo.db.UserEntity
+import com.demo.roomdemo.db.BookEntity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), RecyclerViewAdapter.RowClickListener {
@@ -37,33 +37,38 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.RowClickListener {
 
 
         saveButton.setOnClickListener {
-            val name  = nameInput.text.toString()
-            val email  = emailInput.text.toString()
-            val phone = phoneInput.text.toString()
+            val title = titleInput.text.toString()
+            val pages = pagesInput.text.toString()
+            val editorial = editorialInput.text.toString()
+            val author = authorInput.text.toString()
+            val description = descriptionInput.text.toString()
+            val photoUrl = photoUrlInput.text.toString()
             if(saveButton.text.equals("Save")) {
-                val user = UserEntity(0, name, email, phone)
+                val user = BookEntity(0, title = title, pages = pages, editorial = editorial, author = author, description = description, photourl = photoUrl)
                 viewModel.insertUserInfo(user)
-            } else {
-                val user = UserEntity(nameInput.getTag(nameInput.id).toString().toInt(), name, email, phone)
-                viewModel.updateUserInfo(user)
-                saveButton.setText("Save")
             }
-            nameInput.setText("")
-            emailInput.setText("")
+            titleInput.setText("")
+            pagesInput.setText("")
+            editorialInput.setText("")
+            authorInput.setText("")
+            descriptionInput.setText("")
+            photoUrlInput.setText("")
         }
     }
 
 
 
-    override fun onDeleteUserClickListener(user: UserEntity) {
-        viewModel.deleteUserInfo(user)
+    override fun onDeleteUserClickListener(book: BookEntity) {
+        viewModel.deleteUserInfo(book)
     }
 
-    override fun onItemClickListener(user: UserEntity) {
-        nameInput.setText(user.name)
-        emailInput.setText(user.email)
-        phoneInput.setText(user.phone)
-        nameInput.setTag(nameInput.id, user.id)
+    override fun onItemClickListener(book: BookEntity) {
+        titleInput.setText(book.title)
+        pagesInput.setText(book.pages)
+        editorialInput.setText(book.editorial)
+        authorInput.setText(book.author)
+        descriptionInput.setText(book.description)
+        photoUrlInput.setText(book.photourl)
         saveButton.setText("Update")
     }
 }

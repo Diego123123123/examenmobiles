@@ -8,10 +8,8 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 
-@Database(entities = [UserEntity::class], version = 2)
+@Database(entities = [BookEntity::class], version = 2)
 abstract class RoomAppDb: RoomDatabase() {
-
-
     abstract fun userDao(): UserDao?
 
     companion object {
@@ -19,7 +17,7 @@ abstract class RoomAppDb: RoomDatabase() {
 
         val migration_1_2: Migration = object: Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE userinfo ADD COLUMN phone TEXT DEFAULT ''")
+                database.execSQL("ALTER TABLE books ADD COLUMN phone TEXT DEFAULT ''")
             }
         }
 

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
 
-    <TextView android:id="@+id/tvName"
+    <TextView android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,21 +17,51 @@
         android:textStyle="bold"
         />
 
-    <TextView android:id="@+id/tvEmail"
+    <TextView android:id="@+id/tvPages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:textSize="16sp"
         />
 
-    <TextView android:id="@+id/tvPhone"
+    <TextView android:id="@+id/tvEditorial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="16sp"
+        />
+
+    <TextView android:id="@+id/tvAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditorial"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="16sp"
+        />
+
+    <TextView android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="16sp"
+        />
+
+    <TextView android:id="@+id/tvPhotoUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
         android:textSize="16sp"

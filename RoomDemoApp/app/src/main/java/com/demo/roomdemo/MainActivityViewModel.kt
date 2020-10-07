@@ -4,17 +4,17 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.demo.roomdemo.db.RoomAppDb
-import com.demo.roomdemo.db.UserEntity
+import com.demo.roomdemo.db.BookEntity
 
 class MainActivityViewModel(app: Application): AndroidViewModel(app) {
-    lateinit var allUsers : MutableLiveData<List<UserEntity>>
+    lateinit var allUsers : MutableLiveData<List<BookEntity>>
 
     init{
         allUsers = MutableLiveData()
         getAllUsers()
     }
 
-    fun getAllUsersObservers(): MutableLiveData<List<UserEntity>> {
+    fun getAllUsersObservers(): MutableLiveData<List<BookEntity>> {
         return allUsers
     }
 
@@ -25,19 +25,19 @@ class MainActivityViewModel(app: Application): AndroidViewModel(app) {
         allUsers.postValue(list)
     }
 
-    fun insertUserInfo(entity: UserEntity){
+    fun insertUserInfo(entity: BookEntity){
         val userDao = RoomAppDb.getAppDatabase(getApplication())?.userDao()
         userDao?.insertUser(entity)
         getAllUsers()
     }
 
-    fun updateUserInfo(entity: UserEntity){
+    fun updateUserInfo(entity: BookEntity){
         val userDao = RoomAppDb.getAppDatabase(getApplication())?.userDao()
         userDao?.updateUser(entity)
         getAllUsers()
     }
 
-    fun deleteUserInfo(entity: UserEntity){
+    fun deleteUserInfo(entity: BookEntity){
         val userDao = RoomAppDb.getAppDatabase(getApplication())?.userDao()
         userDao?.deleteUser(entity)
         getAllUsers()

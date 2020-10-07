@@ -6,30 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText android:id="@+id/nameInput"
+    <EditText android:id="@+id/titleInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your name"
+        android:hint="Enter your title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"
         />
 
-    <EditText android:id="@+id/emailInput"
+    <EditText android:id="@+id/pagesInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your email"
+        android:hint="Enter pages"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameInput"
+        app:layout_constraintTop_toBottomOf="@+id/titleInput"
         android:layout_marginStart="10dp"/>
 
-    <EditText android:id="@+id/phoneInput"
+    <EditText android:id="@+id/editorialInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your editorial"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleInput"
+        android:layout_marginStart="10dp"/>
+
+    <EditText android:id="@+id/authorInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your phone number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInput"
+        app:layout_constraintTop_toBottomOf="@+id/editorialInput"
         android:layout_marginStart="10dp"/>
+
+    <EditText android:id="@+id/descriptionInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your phone number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/authorInput"
+        android:layout_marginStart="10dp"/>
+
+    <EditText android:id="@+id/photoUrlInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your phone number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/authorInput"
+        android:layout_marginStart="10dp"/>
+
 
     <Button android:id="@+id/saveButton"
         android:layout_width="wrap_content"
@@ -37,7 +62,7 @@
         android:text="Save"
         android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneInput"
+        app:layout_constraintTop_toBottomOf="@+id/photoUrlInput"
         />
 
     <androidx.recyclerview.widget.RecyclerView

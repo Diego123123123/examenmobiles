@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.demo.roomdemo.db.UserEntity
+import com.demo.roomdemo.db.BookEntity
 import kotlinx.android.synthetic.main.recyclerview_row.view.*
 
 class RecyclerViewAdapter(val listener: RowClickListener): RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
+    var items  = ArrayList<BookEntity>()
 
-    var items  = ArrayList<UserEntity>()
-
-    fun setListData(data: ArrayList<UserEntity>) {
+    fun setListData(data: ArrayList<BookEntity>) {
         this.items = data
     }
 
@@ -25,31 +24,30 @@ class RecyclerViewAdapter(val listener: RowClickListener): RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: RecyclerViewAdapter.MyViewHolder, position: Int) {
-
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(items[position])
         }
         holder.bind(items[position])
-
     }
 
 
 
     class MyViewHolder(view: View, val listener: RowClickListener): RecyclerView.ViewHolder(view) {
-
-        val tvName = view.tvName
-        val tvEmail = view.tvEmail
-        val tvPhone = view.tvPhone
+        val tvTitle = view.tvTitle
+        val tvPages = view.tvPages
+        val tvEditorial = view.tvEditorial
+        val tvAuthor = view.tvAuthor
+        val tvDescription = view.tvDescription
+        val tvPhotoUrl = view.tvPhotoUrl
         val deleteUserID = view.deleteUserID
 
-        fun bind(data: UserEntity) {
-            tvName.text = data.name
-
-            tvEmail.text = data.email
-
-
-            tvPhone.text = data.phone
-
+        fun bind(data: BookEntity) {
+            tvTitle.text = data.title
+            tvPages.text = data.pages
+            tvEditorial.text = data.editorial
+            tvAuthor.text = data.author
+            tvDescription.text = data.description
+            tvPhotoUrl.text = data.photourl
             deleteUserID.setOnClickListener {
                 listener.onDeleteUserClickListener(data)
             }
@@ -57,7 +55,7 @@ class RecyclerViewAdapter(val listener: RowClickListener): RecyclerView.Adapter<
     }
 
     interface RowClickListener{
-        fun onDeleteUserClickListener(user: UserEntity)
-        fun onItemClickListener(user: UserEntity)
+        fun onDeleteUserClickListener(book: BookEntity)
+        fun onItemClickListener(book: BookEntity)
     }
 }
